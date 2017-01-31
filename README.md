@@ -7,20 +7,20 @@ Class methods/members:
 - `Vector.tripleProduct(a, b, c)`
 
 Instance methods/members (`var vec = new Vector(x, y)`):
-- vec.x
-- vec.y
-- vec.toString()
-- vec.lengthSq()
-- vec.lengthSq(v)
-- vec.length()
-- vec.length(v)
-- vec.angle()
-- vec.angle(v)
-- vec.angleDegr()
-- vec.angleDegr(v)
-- vec.dot(v)
-- vec.cross(v)
-- vec.side(vStart, vEnd)
+- `vec.x`
+- `vec.y`
+- `vec.toString()`
+- `vec.lengthSq()`
+- `vec.lengthSq(v)`
+- `vec.length()`
+- `vec.length(v)`
+- `vec.angle()`
+- `vec.angle(v)`
+- `vec.angleDegr()`
+- `vec.angleDegr(v)`
+- `vec.dot(v)`
+- `vec.cross(v)`
+- `vec.side(vStart, vEnd)`
 
 - vec.set(v)
 - vec.set(x, y)
