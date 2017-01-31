@@ -2,9 +2,9 @@
 Simple javascript 2d vector library.
 
 Class methods/members:
-- Vector.i
-- Vector.j
-- Vector.tripleProduct(a, b, c)
+- `Vector.i`
+- `Vector.j`
+- `Vector.tripleProduct(a, b, c)`
 
 Instance methods/members (`var vec = new Vector(x, y)`):
 - vec.x
