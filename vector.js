@@ -17,16 +17,6 @@ Vector.prototype.toString = function() {
   return "[" + this.x + ", " + this.y + "]"
 }
 
-Vector.prototype.set = function(x, y) { /*don't change x or y if undefined or null passed*/
-  if (typeof x != 'number' && x != null) {
-    this.x = x.x
-    this.y = x.y
-    return this
-  }
-  if (x != null) this.x = x
-  if (y != null) this.y = y
-  return this
-}
 //======================================== result isn't a vector
 Vector.prototype.lengthSq = function(v) {
   if (!v) return this.x*this.x + this.y*this.y
@@ -49,8 +39,8 @@ Vector.prototype.dot = function(v) {
   return this.x*v.x + this.y*v.y
 }
 Vector.prototype.cross = function(v) {
-  if (typeof v == 'number') {
-    return new Vector(-v*this.y, v*this.x)
+  if (typeof v == 'number') {				//don't know what that means
+    return new Vector(-v*this.y, v*this.x)	//was used in tutorial on collision detection
   }
   return this.x*v.y - this.y*v.x
 }
@@ -61,16 +51,17 @@ Vector.prototype.side = function(vStart, vEnd) { //test if 'this' point lies on 
 }
 
 //========================================= 'i*' - in-place methods
-Vector.prototype.zero = function() {
-  this.x = 0
-  this.y = 0
+Vector.prototype.set = function(x, y) { /*don't change x or y if undefined or null passed*/
+  if (typeof x != 'number' && x != null) {
+    this.x = x.x
+    this.y = x.y
+    return this
+  }
+  if (x != null) this.x = x
+  if (y != null) this.y = y
   return this
 }
-Vector.prototype.ineg = function() {
-  this.x = -this.x
-  this.y = -this.y
-  return this
-}
+
 Vector.prototype.inorm = function() {
   this.idiv(this.length())
   return this
@@ -100,7 +91,7 @@ Vector.prototype.ito = function(v) {  /*get direction from 'this' to 'v'*/
   this.y = v.y - this.y
   return this
 }
-Vector.prototype.irot = function(angle, p0) {  /*rotate around p0*/
+Vector.prototype.irot = function(angle, p0) {  /*rotate around p0 || O*/
   if (p0) this.isub(p0)
   var x = this.x*Math.cos(angle) - this.y*Math.sin(angle)
   var y = this.x*Math.sin(angle) + this.y*Math.cos(angle)
@@ -136,9 +127,6 @@ Vector.prototype.clone = function() {
   return new Vector(this.x, this.y)
 }
 
-Vector.prototype.neg = function() {
-  return this.clone().ineg()
-}
 Vector.prototype.norm = function() {
   return this.clone().inorm()
 }
