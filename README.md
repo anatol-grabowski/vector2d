@@ -1,7 +1,12 @@
 # vector2d
 Simple javascript 2d vector library.
 
-Supported methods:
+Class methods/members:
+- Vector.i
+- Vector.j
+- Vector.tripleProduct(a, b, c)
+
+Instance methods:
 toString
 set
 lengthSq
